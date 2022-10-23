@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -241,6 +242,11 @@ public class Reportes extends javax.swing.JFrame {
                 cb_tipoItemStateChanged(evt);
             }
         });
+        cb_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoActionPerformed(evt);
+            }
+        });
         pn_principal.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, -1));
 
         cb_tipoc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -326,14 +332,18 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_reportesActionPerformed
 
     private void bt_generarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_generarReporteActionPerformed
-        
-        cb_tipo.getSelectedItem();
-        cb_tipoc.getSelectedItem();
+        SimpleDateFormat FF=new SimpleDateFormat("dd/MM/yyyy");
+        String fi=FF.format(date_inicio.getCalendar().getTime()),ff=FF.format(date_fin.getCalendar().getTime());
+        System.out.println("tabla: "+cb_tipo.getSelectedItem()+"escogio a : "+cb_tipoc.getSelectedItem()+"fecha1: "+fi+"fecha2: "+ff);
     }//GEN-LAST:event_bt_generarReporteActionPerformed
 
     private void cb_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_tipoItemStateChanged
         llenar((String) cb_tipo.getSelectedItem());
     }//GEN-LAST:event_cb_tipoItemStateChanged
+
+    private void cb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tipoActionPerformed
     
     
     

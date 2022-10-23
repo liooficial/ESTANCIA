@@ -7,6 +7,7 @@ package interfas_alumno;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -161,6 +162,9 @@ public class login extends javax.swing.JFrame {
             }
         });
         TextField_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TextField_usuarioKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TextField_usuarioKeyTyped(evt);
             }
@@ -345,8 +349,33 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtfid_contraseñaActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        this.setVisible(false);
+       System.exit(0);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void TextField_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextField_usuarioKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txtfid_contraseña.requestFocus();
+            if(String.valueOf(txtfid_contraseña.getPassword()).equals("******")){
+            txtfid_contraseña.setText("");
+            txtfid_contraseña.setForeground(Color.black);
+            }
+            if(TextField_usuario.getText().isEmpty()){
+            TextField_usuario.setText("Ingrese su usuario");
+            TextField_usuario.setForeground(Color.gray);
+            }
+        }
+        if(evt.getKeyCode()== KeyEvent.VK_TAB){
+            txtfid_contraseña.requestFocus();
+            if(String.valueOf(txtfid_contraseña.getPassword()).equals("******")){
+            txtfid_contraseña.setText("");
+            txtfid_contraseña.setForeground(Color.black);
+            }
+            if(TextField_usuario.getText().isEmpty()){
+            TextField_usuario.setText("Ingrese su usuario");
+            TextField_usuario.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_TextField_usuarioKeyPressed
 
     /**
      * @param args the command line arguments
