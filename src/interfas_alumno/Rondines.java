@@ -25,6 +25,7 @@ public class Rondines extends javax.swing.JFrame {
      */
     public Rondines(final String nom) {
         initComponents();
+        this.setLocationRelativeTo(null);
         lb_nomusuarios.setText(nom);
         llenar_Salones();
     }
@@ -53,18 +54,25 @@ public class Rondines extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         cb_salon = new javax.swing.JComboBox<>();
         lb_salon = new javax.swing.JLabel();
-        ta_observacion = new javax.swing.JTextField();
         lb_observaciones = new javax.swing.JLabel();
         bt_registrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_observacion = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(107, 8, 48));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrador.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         lb_nomusuarios.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lb_nomusuarios.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,9 +216,6 @@ public class Rondines extends javax.swing.JFrame {
         lb_salon.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lb_salon.setText("Salón:");
 
-        ta_observacion.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
-        ta_observacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         lb_observaciones.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lb_observaciones.setText("Observaciones:");
 
@@ -224,26 +229,29 @@ public class Rondines extends javax.swing.JFrame {
             }
         });
 
+        ta_observacion.setColumns(20);
+        ta_observacion.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        ta_observacion.setLineWrap(true);
+        ta_observacion.setRows(5);
+        ta_observacion.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(ta_observacion);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(416, Short.MAX_VALUE)
                 .addComponent(bt_registrar)
                 .addGap(389, 389, 389))
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_salon, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_salon)
-                            .addComponent(lb_observaciones)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(ta_observacion, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_salon, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_salon)
+                    .addComponent(lb_observaciones))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,14 +262,12 @@ public class Rondines extends javax.swing.JFrame {
                 .addComponent(cb_salon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lb_observaciones)
-                .addGap(18, 18, 18)
-                .addComponent(ta_observacion, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bt_registrar)
                 .addGap(36, 36, 36))
         );
-
-        ta_observacion.getAccessibleContext().setAccessibleDescription("");
 
         jPanel2.setBackground(new java.awt.Color(1, 26, 93));
 
@@ -357,6 +363,22 @@ public class Rondines extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_registrarActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        cerrar();
+    }//GEN-LAST:event_jLabel2MouseClicked
+public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
     
     
     //aqui se llenan el combobox de tipo salones
@@ -408,9 +430,10 @@ public class Rondines extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_nomusuarios;
     private javax.swing.JLabel lb_observaciones;
     private javax.swing.JLabel lb_salon;
-    private javax.swing.JTextField ta_observacion;
+    private javax.swing.JTextArea ta_observacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,17 +5,28 @@
  */
 package interfas_alumno;
 
+import com.csvreader.CsvReader;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,35 +34,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Michael
  */
 public class Usuarios extends javax.swing.JFrame {
-   
-    
-    
-   
-  
-   
-     
-    
-    
+
     public Usuarios() {
         initComponents();
-        Connect();
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
     }
-   
-    Connection con;
-    PreparedStatement pst;
 
-    public void Connect() {
-
-        String connection = "jdbc:sqlserver://localhost:1433;databaseName=Gym;integratedSecurity=true";
-
-        try {
-            con = DriverManager.getConnection(connection);
-        } catch (SQLException ex) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,6 +71,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
+        setUndecorated(true);
         setSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -237,6 +226,11 @@ public class Usuarios extends javax.swing.JFrame {
 
         lb_Adm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrador.png"))); // NOI18N
         lb_Adm.setText("jLabel3");
+        lb_Adm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_AdmMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -275,29 +269,26 @@ public class Usuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGuardarActionPerformed
-  
+        Connection conn = Base_datos.getConnection();
+        PreparedStatement pst;
 
         String Nombre = txtMat.getText();
         String User = txtUser.getText();
-       
+
         try {
-            pst = con.prepareStatement("insert into Usuarios(Nombre,Usuario,Contraseña,Tipo)values(?,?,?,?)");
+            pst = conn.prepareStatement("insert into Usuarios(Nombre,Usuario,Contraseña,Tipo)values(?,?,?,?)");
             pst.setString(1, Nombre);
             pst.setString(2, User);
-            pst.setString(3, "12345"); 
+            pst.setString(3, "12345");
             pst.setString(4, "alumno");
             int k = pst.executeUpdate();
 
-            if(k==1)
-            {
+            if (k == 1) {
                 JOptionPane.showMessageDialog(this, "Usuario añadido");
                 txtUser.setText("");
-                txtMat.setText("");              
-              
+                txtMat.setText("");
 
-            }
-            else
-            {
+            } else {
                 JOptionPane.showMessageDialog(this, "Error al guardar");
             }
 
@@ -307,9 +298,11 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_bttnGuardarActionPerformed
 
     private void bttnRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRestActionPerformed
-          
-      {
-            DefaultTableModel d1 = (DefaultTableModel)jTable1.getModel();
+        Connection con = Base_datos.getConnection();
+        PreparedStatement pst;
+
+        {
+            DefaultTableModel d1 = (DefaultTableModel) jTable1.getModel();
             int SelectIndex = jTable1.getSelectedRow();
 
             String id = d1.getValueAt(SelectIndex, 0).toString();
@@ -318,23 +311,17 @@ public class Usuarios extends javax.swing.JFrame {
                 pst = con.prepareStatement("update Usuarios set Contraseña = ? where Usuario = ?");
                 pst.setString(1, "12345");
                 pst.setString(2, id);
-            
 
                 int k = pst.executeUpdate();
 
-                if(k==1)
-                {
+                if (k == 1) {
                     JOptionPane.showMessageDialog(this, "Registro actualizado");
                     txtUser.setText("");
                     txtMat.setText("");
-                  
-               
-                   
+
                     bttnGuardar.setEnabled(true);
 
-                }
-                else
-                {
+                } else {
                     JOptionPane.showMessageDialog(this, "Error al guardar");
                 }
 
@@ -345,13 +332,128 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_bttnRestActionPerformed
 
     private void bttnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnElimActionPerformed
-       
+
     }//GEN-LAST:event_bttnElimActionPerformed
 
     private void bttnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExcActionPerformed
-        // TODO add your handling code here:
+
+        Connection con = Base_datos.getConnection();
+        PreparedStatement pst;
+
+        JFileChooser jf = new JFileChooser();
+
+        File arch = null;
+        String archivo = "";
+        int status = jf.showOpenDialog(null);// Da un entero
+        int i = 0;
+        if (status == JFileChooser.APPROVE_OPTION) {
+
+            arch = jf.getSelectedFile();
+            archivo = arch.toString();
+            i = 1;
+// Si apretamos en cancelar o cerramos la ventana ocurrirá esto
+        } else if (status == JFileChooser.CANCEL_OPTION) {
+
+            JOptionPane.showMessageDialog(this, "No selecciono nada");
+        }
+        if (i == 1) {
+            try{
+            List<Usuario> usuarios = new ArrayList<Usuario>(); // Lista donde guardaremos los datos del archivo
+            
+            CsvReader leerUsuarios = new CsvReader(archivo);
+                try {
+                    leerUsuarios.readHeaders();
+                } catch (CsvReader.FinalizedException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (CsvReader.CatastrophicException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+                try {
+                    // Mientras haya lineas obtenemos los datos del archivo
+                    while(leerUsuarios.readRecord()) {
+                        String Id = leerUsuarios.get(0);
+                        String TipoUsuario = leerUsuarios.get(1);
+                        String Nombre = leerUsuarios.get(2);
+                        String Contraseña = leerUsuarios.get(3);
+                        String Estado = leerUsuarios.get(4);
+                        String[] id = Id.split(";");
+                        String id1= id[0];
+                        String tip = id[1];
+                        String nom= id[2];
+                        String cont = id[3];
+                        String est= id[4];
+                        
+                        
+                        try {
+                            
+                            pst = con.prepareStatement("insert into Usuarios(Id,TipoUsuario,Nombre,Contraseña,Estado)values(?,?,?,?,?)");
+                            pst.setString(1, id1);
+                            pst.setString(2, tip);
+                            pst.setString(3, nom);
+                            pst.setString(4, cont);
+                            pst.setString(5, est);
+                            int k = pst.executeUpdate();
+                            if (k == 1) {
+                                
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Error al guardar");
+                            }
+                            
+                        } catch (SQLException ex) {
+                            JOptionPane.showMessageDialog(this, "Hay algun campo duplicado");
+                        }
+                        
+                        
+                        
+                        
+                        usuarios.add(new Usuario(Id,TipoUsuario,Nombre,Contraseña,Estado)); // Añade la informacion a la lista
+                    }   } catch (CsvReader.FinalizedException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (CsvReader.CatastrophicException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+            leerUsuarios.close(); // Cierra el archivo
+            
+            // Recorremos la lista y la mostramos en la pantalla
+            for(Usuario user : usuarios) {
+                System.out.println(user.getId() + " , "
+                    + user.getTipoUsuario() + " , "
+                    +user.getNombre()+user.getContraseña()+ "," +user.getEstado());
+            }
+            
+        } catch(FileNotFoundException e) {
+            e.printStackTrace();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+            
+            
+        }
+           
+  
+
+             
+       
     }//GEN-LAST:event_bttnExcActionPerformed
 
+    private void lb_AdmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_AdmMouseClicked
+        cerrar();
+    }//GEN-LAST:event_lb_AdmMouseClicked
+public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -384,25 +486,31 @@ public class Usuarios extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Usuarios().setVisible(true);
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
-    
-    
-    private void SetImageLabel(JLabel labelName,String root){
+
+    private void SetImageLabel(JLabel labelName, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(
-          image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
-          labelName.setIcon(icon);
-          this.repaint();
-        
-        
-    }
-    
-     
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
+        labelName.setIcon(icon);
+        this.repaint();
 
-    
-    
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttnElim;
     private javax.swing.JButton bttnExc;

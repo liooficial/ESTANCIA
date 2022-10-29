@@ -24,6 +24,7 @@ public class Administrar_horario2 extends javax.swing.JFrame {
      */
     public Administrar_horario2(final String nom) {
         initComponents();
+        this.setLocationRelativeTo(null);
         lb_usuario.setText(nom);
         cargarHoras();
         llenar_Profesores();
@@ -331,6 +332,7 @@ public class Administrar_horario2 extends javax.swing.JFrame {
         lb_LSO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -350,6 +352,7 @@ public class Administrar_horario2 extends javax.swing.JFrame {
         lb_usuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lb_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lb_usuario.setText("Administrador");
+        lb_usuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -360,11 +363,11 @@ public class Administrar_horario2 extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lb_usuario))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lb_usuario)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -375,7 +378,7 @@ public class Administrar_horario2 extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(44, 44, 44)
+                        .addGap(36, 36, 36)
                         .addComponent(lb_usuario)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );

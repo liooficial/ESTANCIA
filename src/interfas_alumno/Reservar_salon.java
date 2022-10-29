@@ -23,6 +23,7 @@ public class Reservar_salon extends javax.swing.JFrame {
      */
     public Reservar_salon(final String tipo,String nom) {
         initComponents();
+        this.setLocationRelativeTo(null);
         verificar(tipo);
         if(tipo.equals("Docente")){
         rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/profesor.png");
@@ -92,10 +93,16 @@ public class Reservar_salon extends javax.swing.JFrame {
         lb_LSO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(107, 8, 48));
 
         lb_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        lb_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_usuarioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -504,6 +511,23 @@ public class Reservar_salon extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lb_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuarioMouseClicked
+        cerrar();
+    }//GEN-LAST:event_lb_usuarioMouseClicked
+    public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
     private void verificar(String tipo) {
         try {
             String asunto="";

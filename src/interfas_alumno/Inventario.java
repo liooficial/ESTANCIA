@@ -25,6 +25,7 @@ public class Inventario extends javax.swing.JFrame {
      */
     public Inventario(final String nom) {
         initComponents();
+        this.setLocationRelativeTo(null);
         lb_nombreDelUsuario.setText(nom);
         llenar_laboratorios();
         llenar_Equipos();
@@ -68,6 +69,7 @@ public class Inventario extends javax.swing.JFrame {
         bt_limpiar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         pn_principal.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,6 +88,11 @@ public class Inventario extends javax.swing.JFrame {
         lb_nombreDelUsuario.setText("Administrador");
 
         lb_usuarioImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrador.png"))); // NOI18N
+        lb_usuarioImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_usuarioImgMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_rojoLayout = new javax.swing.GroupLayout(pn_rojo);
         pn_rojo.setLayout(pn_rojoLayout);
@@ -101,16 +108,16 @@ public class Inventario extends javax.swing.JFrame {
                     .addGroup(pn_rojoLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lb_nombreDelUsuario)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         pn_rojoLayout.setVerticalGroup(
             pn_rojoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_rojoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(lb_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lb_nombreDelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(46, 46, 46))
             .addGroup(pn_rojoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_usuarioImg, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,7 +388,25 @@ public class Inventario extends javax.swing.JFrame {
     private void cb_laboratoriosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_laboratoriosItemStateChanged
         llenar_Equipos();
     }//GEN-LAST:event_cb_laboratoriosItemStateChanged
-    //aqui se llenan el combobox de laboratorios
+
+    private void lb_usuarioImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuarioImgMouseClicked
+       cerrar();
+    }//GEN-LAST:event_lb_usuarioImgMouseClicked
+    public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
+
+//aqui se llenan el combobox de laboratorios
     private ArrayList<Integer> llena_lab() {
         Connection connection = Base_datos.getConnection();
         Statement stmt;

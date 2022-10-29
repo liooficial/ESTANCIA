@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,8 @@ public class Reportes extends javax.swing.JFrame {
      * Creates new form Inventario
      */
     public Reportes(final String nom) {
-        initComponents(); 
+        initComponents();
+        this.setLocationRelativeTo(null);
         lb_nombreDelUsuario.setText(nom);
         llenar((String) cb_tipo.getSelectedItem());
     }
@@ -62,6 +64,7 @@ public class Reportes extends javax.swing.JFrame {
         date_fin = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         pn_principal.setBackground(new java.awt.Color(255, 255, 255));
         pn_principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,6 +84,11 @@ public class Reportes extends javax.swing.JFrame {
         lb_nombreDelUsuario.setText("Administrador");
 
         lb_usuarioImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrador.png"))); // NOI18N
+        lb_usuarioImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_usuarioImgMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_rojoLayout = new javax.swing.GroupLayout(pn_rojo);
         pn_rojo.setLayout(pn_rojoLayout);
@@ -344,7 +352,23 @@ public class Reportes extends javax.swing.JFrame {
     private void cb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_tipoActionPerformed
-    
+
+    private void lb_usuarioImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuarioImgMouseClicked
+        cerrar();
+    }//GEN-LAST:event_lb_usuarioImgMouseClicked
+    public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
     
     
     //aqui se llenan el combobox de tipo equipo
