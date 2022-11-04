@@ -534,7 +534,19 @@ public class Reservar_salon extends javax.swing.JFrame {
             Connection connection = Base_datos.getConnection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='"+tipo+"' AND Estado='Activo'");
+            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='"+tipo+"' AND Estado='Activo'"); 
+            rs = ps.executeQuery();
+            while(rs.next()){
+                asunto=rs.getString("Asunto");
+                mensaje=rs.getString("Cuerpo");
+                    if(!"".equals(asunto)){
+                    mensaje ventana = new mensaje(mensaje,asunto);
+                    ventana.setAlwaysOnTop(true);
+                    ventana.setVisible(true);
+                    this.setVisible(false);
+                    }
+            }
+            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='Todos' AND Estado='Activo'"); 
             rs = ps.executeQuery();
             while(rs.next()){
                 asunto=rs.getString("Asunto");

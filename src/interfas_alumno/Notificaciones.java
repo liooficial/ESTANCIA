@@ -60,6 +60,7 @@ public class Notificaciones extends javax.swing.JFrame {
         lb_mensaje = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_asunto = new javax.swing.JTextArea();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -214,10 +215,15 @@ public class Notificaciones extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(244, 244, 244));
 
         cb_tipo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Docente" }));
+        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Docente", "Todos" }));
+        cb_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoActionPerformed(evt);
+            }
+        });
 
         lb_salon.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lb_salon.setText("Usuario:");
+        lb_salon.setText("Usuario dirigido:");
 
         lb_asunto.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lb_asunto.setText("Asunto:");
@@ -259,6 +265,14 @@ public class Notificaciones extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(ta_asunto);
 
+        jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jToggleButton1.setText("Administración de notificaciones");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -270,13 +284,16 @@ public class Notificaciones extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1))
                     .addComponent(lb_mensaje)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
                     .addComponent(lb_asunto)
                     .addComponent(lb_salon)
                     .addComponent(jScrollPane2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,8 +301,10 @@ public class Notificaciones extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lb_salon)
                 .addGap(18, 18, 18)
-                .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addComponent(lb_asunto)
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -425,6 +444,16 @@ public class Notificaciones extends javax.swing.JFrame {
         evt.consume();
     }
     }//GEN-LAST:event_ta_asuntoKeyTyped
+
+    private void cb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tipoActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Administracion_de_mensajes ventana = new Administracion_de_mensajes( lb_nomusuarios.getText());
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 public void cerrar(){
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
@@ -464,6 +493,7 @@ public void cerrar(){
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lb_asunto;
     private javax.swing.JLabel lb_mensaje;
     private javax.swing.JLabel lb_nomusuarios;
