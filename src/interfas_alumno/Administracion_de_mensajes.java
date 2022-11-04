@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -62,7 +63,7 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1400, 800));
+        setPreferredSize(new java.awt.Dimension(1400, 797));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -128,6 +129,13 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tb_mensajes);
+        if (tb_mensajes.getColumnModel().getColumnCount() > 0) {
+            tb_mensajes.getColumnModel().getColumn(0).setResizable(false);
+            tb_mensajes.getColumnModel().getColumn(1).setResizable(false);
+            tb_mensajes.getColumnModel().getColumn(2).setResizable(false);
+            tb_mensajes.getColumnModel().getColumn(3).setResizable(false);
+            tb_mensajes.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 950, 270));
 
@@ -159,31 +167,34 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
 
         bt_eliminar.setBackground(new java.awt.Color(107, 8, 48));
         bt_eliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bt_eliminar.setText("eliminar");
+        bt_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar (1).png"))); // NOI18N
+        bt_eliminar.setContentAreaFilled(false);
         bt_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 730, 100, 50));
+        getContentPane().add(bt_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 460, 80, 70));
 
         bt_modificar.setBackground(new java.awt.Color(204, 255, 204));
         bt_modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bt_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         bt_modificar.setText("modificar");
+        bt_modificar.setContentAreaFilled(false);
         bt_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 730, 110, 50));
+        getContentPane().add(bt_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 720, 180, 70));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Estado:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, -1, -1));
 
         tipo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Docente", "Todos" }));
-        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
+        getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Cuerpo:");
@@ -237,15 +248,15 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
         jta_cuerpo.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jta_cuerpo);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, 850, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, 880, -1));
 
         jc_estado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jc_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        getContentPane().add(jc_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 480, -1, -1));
+        getContentPane().add(jc_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 490, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Usuario dirigido:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,7 +299,7 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
             ps.setString(3, estado);
             ps.setString(4, Asunto);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro modificado","Registro modificado",JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Registro modificado","Registro modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/correo-electronico.png"));
             limpiar();
             cargar_tabla();
             }
@@ -305,11 +316,11 @@ public class Administracion_de_mensajes extends javax.swing.JFrame {
             PreparedStatement ps=con.prepareStatement("DELETE FROM Mensajes WHERE Asunto=?  ");
             ps.setString(1, Asunto);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro ELIMINADO","Registro ELIMINADO",JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Registro ELIMINADO","Registro ELIMINADO",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/eliminar.png"));
             limpiar();
             cargar_tabla();
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Hay usuarios con ese entenamiento");
+            JOptionPane.showMessageDialog(null, "");
         }
     }//GEN-LAST:event_bt_eliminarActionPerformed
 

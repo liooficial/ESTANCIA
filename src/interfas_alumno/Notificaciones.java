@@ -266,7 +266,9 @@ public class Notificaciones extends javax.swing.JFrame {
         jScrollPane2.setViewportView(ta_asunto);
 
         jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/correo-electronico.png"))); // NOI18N
         jToggleButton1.setText("Administración de notificaciones");
+        jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -303,7 +305,7 @@ public class Notificaciones extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton1))
                 .addGap(44, 44, 44)
                 .addComponent(lb_asunto)
                 .addGap(40, 40, 40)
@@ -418,9 +420,9 @@ public class Notificaciones extends javax.swing.JFrame {
             ps.setString(4, tipo);
             ps.setString(5, estado);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"mensaje","mensaje enviado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/webservices-http-api-playsms-para-agregar-una-cuenta-de-usuario.png"));
-                ta_asunto.setText("");
-                ta_mensajes.setText("");
+            ta_asunto.setText("");
+            ta_mensajes.setText("");
+            JOptionPane.showMessageDialog(null,"Notificacion publicada con exito","Estado de mensaje",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/megafono.png"));
             }
         }catch(SQLException ex){
             System.out.println(""+ex);
