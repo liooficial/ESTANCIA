@@ -20,28 +20,13 @@ public class mensaje extends javax.swing.JFrame {
     /**
      * Creates new form mensaje
      */
-    public mensaje(final String usuario1) {
+    public mensaje(final String mensaje, String asunto) {
         initComponents();
         this.setLocationRelativeTo(null);
-        try {
-            String asunto="",cuerpo="";
-            Connection connection = Base_datos.getConnection();
-            PreparedStatement ps;
-            ResultSet rs;
-            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='"+usuario1+"'");
-            rs = ps.executeQuery();
-            while(rs.next()){
-            asunto=rs.getString("Asunto");
-            lb_asunto.setText(asunto);
-            cuerpo=rs.getString("Cuerpo");
-            lb_cuerpo.setText(cuerpo);
-            }
-              this.setVisible(false);
-        } catch (Exception ex) {
-            System.out.println("Error: " + ex.getMessage());
-            JOptionPane.showMessageDialog(null, ex.toString());
-        }
-        
+        lb_cuerpo.setText(mensaje);
+        lb_asunto.setText(asunto);    
+       
+    
     }
 
     /**
@@ -77,13 +62,13 @@ public class mensaje extends javax.swing.JFrame {
         lb_asunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lb_asunto.setText("jLabel1");
 
+        lb_cuerpo.setEditable(false);
         lb_cuerpo.setColumns(20);
-        lb_cuerpo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb_cuerpo.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         lb_cuerpo.setLineWrap(true);
         lb_cuerpo.setRows(5);
         lb_cuerpo.setWrapStyleWord(true);
         lb_cuerpo.setBorder(null);
-        lb_cuerpo.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(lb_cuerpo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -99,8 +84,8 @@ public class mensaje extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 72, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 60, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,8 +94,8 @@ public class mensaje extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lb_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(jButton1)
                 .addGap(19, 19, 19))
         );

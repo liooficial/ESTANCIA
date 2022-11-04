@@ -234,6 +234,11 @@ public class Rondines extends javax.swing.JFrame {
         ta_observacion.setLineWrap(true);
         ta_observacion.setRows(5);
         ta_observacion.setWrapStyleWord(true);
+        ta_observacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ta_observacionKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(ta_observacion);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -336,7 +341,7 @@ public class Rondines extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_inventarioActionPerformed
 
     private void bt_notificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_notificacionesActionPerformed
-                Notificaciones ventana = new Notificaciones( );
+                Notificaciones ventana = new Notificaciones( lb_nomusuarios.getText());
                 ventana.setVisible(true);
                 this.setVisible(false);
     }//GEN-LAST:event_bt_notificacionesActionPerformed
@@ -366,6 +371,13 @@ public class Rondines extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         cerrar();
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void ta_observacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta_observacionKeyTyped
+            if( ta_observacion.getText().length() >= 200)
+    {
+        evt.consume();
+    }
+    }//GEN-LAST:event_ta_observacionKeyTyped
 public void cerrar(){
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",

@@ -2978,7 +2978,7 @@ public class Administrar_horario2 extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_inventarioActionPerformed
 
     private void bt_notificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_notificacionesActionPerformed
-        Notificaciones ventana = new Notificaciones( );
+        Notificaciones ventana = new Notificaciones(lb_usuario.getText() );
                 ventana.setVisible(true);
                 this.setVisible(false);
     }//GEN-LAST:event_bt_notificacionesActionPerformed

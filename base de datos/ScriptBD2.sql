@@ -43,7 +43,7 @@ FOREIGN KEY  (Materia) REFERENCES Materias(Nombre)
 
 CREATE TABLE Rondines(
 Id int  PRIMARY KEY AUTO_INCREMENT,
-Fecha datetime default CURRENT_TIMESTAMP,
+Fecha date default CURRENT_TIMESTAMP(),
 Administrador varchar(50),
 Salon varchar(10),
 Comentario varchar(350),
@@ -51,13 +51,11 @@ FOREIGN KEY  (Salon) REFERENCES Salones(Id)
 );
 
 CREATE TABLE Mensajes(
-Id int PRIMARY KEY AUTO_INCREMENT,
-Administrador int(11),
+Administrador varchar(50),
 Asunto varchar(50),
 Cuerpo varchar(200),
 TipoDeUsuarioAlQueSeDirige varchar(15),
-Estado varchar(15),
-FOREIGN KEY  (Administrador) REFERENCES Usuarios(Id)
+Estado varchar(15)
 );
 
 CREATE TABLE Equipos(
@@ -74,7 +72,7 @@ FOREIGN KEY  (Salon) REFERENCES Salones(Id)
 
 CREATE TABLE Observaciones(
 Id int PRIMARY KEY AUTO_INCREMENT,
-Fecha datetime ,
+Fecha date default CURRENT_TIMESTAMP(),
 Usuario int(11),
 Equipo varchar(8),
 Comentario varchar(200),
@@ -148,11 +146,8 @@ values
 
 INSERT INTO Observaciones (Id, Fecha, Usuario, Equipo, Comentario, Estado) values ('374743', '2020-01-01 15:10:10', '2030178', 'LAS-PC1', 'Equipo funcional', 'Activo');
 
-INSERT INTO Mensajes (Id, Administrador, Asunto, Cuerpo, TipoDeUsuarioAlQueSeDirige, Estado) 
-values
- ('374745', '2030178', 'Maquina', 'La maquina no funciona', 'Docente', 'Inactivo')
- ;
 
-SELECT *FROM Rondines;
+SELECT *FROM usuarios;
 
-SELECT Nombre FROM Usuarios WHERE TipoUsuario='Estudiante'
+ SELECT *FROM Mensajes
+

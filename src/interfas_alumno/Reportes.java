@@ -322,9 +322,9 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_rondinesActionPerformed
 
     private void bt_notificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_notificacionesActionPerformed
-        Notificaciones ventana = new Notificaciones( );
-        ventana.setVisible(true);
-        this.setVisible(false);
+        Notificaciones ventana = new Notificaciones( lb_nombreDelUsuario.getText());
+                ventana.setVisible(true);
+                this.setVisible(false);
     }//GEN-LAST:event_bt_notificacionesActionPerformed
 
     private void bt_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_inventarioActionPerformed

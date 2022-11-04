@@ -530,20 +530,21 @@ public class Reservar_salon extends javax.swing.JFrame {
     }
     private void verificar(String tipo) {
         try {
-            String asunto="";
+            String asunto="",mensaje="";
             Connection connection = Base_datos.getConnection();
             PreparedStatement ps;
             ResultSet rs;
-            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='"+tipo+"'");
+            ps = connection.prepareStatement("SELECT Asunto,Cuerpo FROM Mensajes where TipoDeUsuarioAlQueSeDirige='"+tipo+"' AND Estado='Activo'");
             rs = ps.executeQuery();
             while(rs.next()){
                 asunto=rs.getString("Asunto");
-            }
-            if(!"".equals(asunto)){
-            mensaje ventana = new mensaje(tipo);
-            ventana.setAlwaysOnTop(true);
-            ventana.setVisible(true);
-            this.setVisible(false);
+                mensaje=rs.getString("Cuerpo");
+                    if(!"".equals(asunto)){
+                    mensaje ventana = new mensaje(mensaje,asunto);
+                    ventana.setAlwaysOnTop(true);
+                    ventana.setVisible(true);
+                    this.setVisible(false);
+                    }
             }
         } catch (Exception ex) {
             System.out.println("Error: " + ex.getMessage());

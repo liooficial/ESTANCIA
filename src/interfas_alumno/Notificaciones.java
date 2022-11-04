@@ -5,25 +5,28 @@
  */
 package interfas_alumno;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author liooficial
+ * @author Geovanni
  */
 public class Notificaciones extends javax.swing.JFrame {
 
     /**
-     * Creates new form Inventario
+     * Creates new form Administrar_horario
      */
-    public Notificaciones() {
+    public Notificaciones(final String nom) {
         initComponents();
-         this.setLocationRelativeTo(null);
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_logoImg,"src/img/isc.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_administrarImg,"src/img/calendario.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_administrarUsuarioImg,"src/img/grupo-de-usuarios.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_reportesimg,"src/img/reporte2.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_rondinesimg,"src/img/ronda.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_notificacionesimg,"src/img/correo.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(lb_invetaimg,"src/img/inventario.png");   
+        this.setLocationRelativeTo(null);
+        lb_nomusuarios.setText(nom);
     }
 
     /**
@@ -35,145 +38,287 @@ public class Notificaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pn_principal = new javax.swing.JPanel();
-        pn_menuLateral = new javax.swing.JPanel();
-        lb_administrarImg = new javax.swing.JLabel();
-        lb_logoImg = new javax.swing.JLabel();
-        lb_administrarUsuarioImg = new javax.swing.JLabel();
-        lb_reportesimg = new javax.swing.JLabel();
-        lb_rondinesimg = new javax.swing.JLabel();
-        lb_notificacionesimg = new javax.swing.JLabel();
-        lb_invetaimg = new javax.swing.JLabel();
-        bt_administrar_Horarios = new javax.swing.JToggleButton();
-        bt_administrar_Usuarios = new javax.swing.JToggleButton();
-        bt_reportes = new javax.swing.JToggleButton();
-        bt_rondines = new javax.swing.JToggleButton();
-        bt_notificaciones = new javax.swing.JToggleButton();
-        lb_inventario = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lb_nomusuarios = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        bt_administarHorarios = new javax.swing.JButton();
+        bt_rondines = new javax.swing.JButton();
+        bt_reportes = new javax.swing.JButton();
+        bt_inventario = new javax.swing.JButton();
+        bt_administarUsuarios = new javax.swing.JButton();
+        bt_notificaciones = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        cb_tipo = new javax.swing.JComboBox<>();
+        lb_salon = new javax.swing.JLabel();
+        lb_asunto = new javax.swing.JLabel();
+        bt_registrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_mensajes = new javax.swing.JTextArea();
+        lb_mensaje = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_asunto = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        pn_principal.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        pn_menuLateral.setBackground(new java.awt.Color(255, 255, 255));
-        pn_menuLateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setBackground(new java.awt.Color(107, 8, 48));
 
-        lb_administrarImg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_administrarImg.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pn_menuLateral.add(lb_administrarImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 70, 40));
-        pn_menuLateral.add(lb_logoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 140));
-
-        lb_administrarUsuarioImg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_administrarUsuarioImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(lb_administrarUsuarioImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 70, 40));
-
-        lb_reportesimg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_reportesimg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(lb_reportesimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 70, 40));
-
-        lb_rondinesimg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_rondinesimg.setText(" ");
-        lb_rondinesimg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(lb_rondinesimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 70, 40));
-
-        lb_notificacionesimg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_notificacionesimg.setText(" ");
-        lb_notificacionesimg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(lb_notificacionesimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 70, 40));
-
-        lb_invetaimg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_invetaimg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(lb_invetaimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 70, 40));
-
-        bt_administrar_Horarios.setBackground(new java.awt.Color(255, 255, 255));
-        bt_administrar_Horarios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_administrar_Horarios.setText("Tipo de notificacion ");
-        bt_administrar_Horarios.setBorder(null);
-        bt_administrar_Horarios.setContentAreaFilled(false);
-        bt_administrar_Horarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bt_administrar_Horarios.setFocusPainted(false);
-        bt_administrar_Horarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_administrar_HorariosActionPerformed(evt);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/administrador.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        pn_menuLateral.add(bt_administrar_Horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 330, 60));
 
-        bt_administrar_Usuarios.setBackground(new java.awt.Color(255, 255, 255));
-        bt_administrar_Usuarios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_administrar_Usuarios.setText("Redactar notificacion ");
-        bt_administrar_Usuarios.setContentAreaFilled(false);
-        bt_administrar_Usuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bt_administrar_Usuarios.addActionListener(new java.awt.event.ActionListener() {
+        lb_nomusuarios.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lb_nomusuarios.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nomusuarios.setText("Administrador");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("usuario:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel2)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lb_nomusuarios)
+                        .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(48, 48, 48))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lb_nomusuarios)
+                        .addGap(42, 42, 42))))
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isc350X140.png"))); // NOI18N
+
+        bt_administarHorarios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bt_administarHorarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendario60X60.png"))); // NOI18N
+        bt_administarHorarios.setText("Administar horarios");
+        bt_administarHorarios.setContentAreaFilled(false);
+        bt_administarHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_administrar_UsuariosActionPerformed(evt);
+                bt_administarHorariosActionPerformed(evt);
             }
         });
-        pn_menuLateral.add(bt_administrar_Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 350, 60));
 
-        bt_reportes.setBackground(new java.awt.Color(255, 255, 255));
+        bt_rondines.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bt_rondines.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ronda60X60.png"))); // NOI18N
+        bt_rondines.setText("Rondines              ");
+        bt_rondines.setContentAreaFilled(false);
+        bt_rondines.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_rondinesActionPerformed(evt);
+            }
+        });
+
         bt_reportes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_reportes.setText("Eliminar Notificacion ");
+        bt_reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reporte2_60X60.png"))); // NOI18N
+        bt_reportes.setText("Reportes                ");
         bt_reportes.setContentAreaFilled(false);
-        bt_reportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_reportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_reportesActionPerformed(evt);
             }
         });
-        pn_menuLateral.add(bt_reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 350, 60));
 
-        bt_rondines.setBackground(new java.awt.Color(255, 255, 255));
-        bt_rondines.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_rondines.setText("Mostrar Notificacion  ");
-        bt_rondines.setContentAreaFilled(false);
-        bt_rondines.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(bt_rondines, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 350, 60));
-
-        bt_notificaciones.setBackground(new java.awt.Color(255, 255, 255));
-        bt_notificaciones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bt_notificaciones.setText("    Salir ");
-        bt_notificaciones.setContentAreaFilled(false);
-        bt_notificaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pn_menuLateral.add(bt_notificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 350, 60));
-
-        lb_inventario.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lb_inventario.setText("Notificaciones");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        bt_inventario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bt_inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventario60X60.png"))); // NOI18N
+        bt_inventario.setText("Inventario           ");
+        bt_inventario.setContentAreaFilled(false);
+        bt_inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                bt_inventarioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pn_principalLayout = new javax.swing.GroupLayout(pn_principal);
-        pn_principal.setLayout(pn_principalLayout);
-        pn_principalLayout.setHorizontalGroup(
-            pn_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_principalLayout.createSequentialGroup()
-                .addComponent(pn_menuLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pn_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn_principalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lb_inventario))
-                    .addGroup(pn_principalLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(749, Short.MAX_VALUE))
+        bt_administarUsuarios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bt_administarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/grupo-de-usuarios60X60.png"))); // NOI18N
+        bt_administarUsuarios.setText("Administar usuarios");
+        bt_administarUsuarios.setContentAreaFilled(false);
+        bt_administarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_administarUsuariosActionPerformed(evt);
+            }
+        });
+
+        bt_notificaciones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bt_notificaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/correo60X60.png"))); // NOI18N
+        bt_notificaciones.setText("Notificaciones         ");
+        bt_notificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_notificacionesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_administarHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_administarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_rondines, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_notificaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bt_inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pn_principalLayout.setVerticalGroup(
-            pn_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_principalLayout.createSequentialGroup()
-                .addComponent(pn_menuLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-            .addGroup(pn_principalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_inventario)
-                .addGap(123, 123, 123)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_administarHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bt_administarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_rondines, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_notificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(244, 244, 244));
+
+        cb_tipo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Docente" }));
+
+        lb_salon.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lb_salon.setText("Usuario:");
+
+        lb_asunto.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lb_asunto.setText("Asunto:");
+
+        bt_registrar.setBackground(new java.awt.Color(107, 8, 48));
+        bt_registrar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        bt_registrar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_registrar.setText("publicar");
+        bt_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_registrarActionPerformed(evt);
+            }
+        });
+
+        ta_mensajes.setColumns(20);
+        ta_mensajes.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        ta_mensajes.setLineWrap(true);
+        ta_mensajes.setRows(5);
+        ta_mensajes.setWrapStyleWord(true);
+        ta_mensajes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ta_mensajesKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(ta_mensajes);
+
+        lb_mensaje.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lb_mensaje.setText("Mensaje:");
+
+        ta_asunto.setColumns(20);
+        ta_asunto.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        ta_asunto.setLineWrap(true);
+        ta_asunto.setRows(5);
+        ta_asunto.setWrapStyleWord(true);
+        ta_asunto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ta_asuntoKeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(ta_asunto);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_registrar)
+                .addGap(405, 405, 405))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_mensaje)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
+                    .addComponent(lb_asunto)
+                    .addComponent(lb_salon)
+                    .addComponent(jScrollPane2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_salon)
+                .addGap(18, 18, 18)
+                .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(lb_asunto)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_mensaje)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(bt_registrar)
+                .addContainerGap())
+        );
+
+        jPanel2.setBackground(new java.awt.Color(1, 26, 93));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Notificaciones ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(356, 356, 356)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(369, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,87 +326,149 @@ public class Notificaciones extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pn_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pn_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_administrar_HorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administrar_HorariosActionPerformed
-        
-    }//GEN-LAST:event_bt_administrar_HorariosActionPerformed
+    private void bt_administarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administarUsuariosActionPerformed
+       Usuarios ventana = new Usuarios( );
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_bt_administarUsuariosActionPerformed
 
     private void bt_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_reportesActionPerformed
-        // TODO add your handling code here:
+        Reportes ventana = new Reportes( lb_nomusuarios.getText());
+                ventana.setVisible(true);
+                this.setVisible(false);
     }//GEN-LAST:event_bt_reportesActionPerformed
 
-    private void bt_administrar_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administrar_UsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_administrar_UsuariosActionPerformed
+    private void bt_administarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administarHorariosActionPerformed
+        Administrar_horario2 ventana = new Administrar_horario2(lb_nomusuarios.getText() );
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_bt_administarHorariosActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void bt_rondinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_rondinesActionPerformed
+        Rondines ventana = new Rondines( lb_nomusuarios.getText());
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_bt_rondinesActionPerformed
+
+    private void bt_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_inventarioActionPerformed
+        Inventario ventana = new Inventario(lb_nomusuarios.getText() );
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_bt_inventarioActionPerformed
+
+    private void bt_notificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_notificacionesActionPerformed
+               Notificaciones ventana = new Notificaciones( lb_nomusuarios.getText());
+                ventana.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_bt_notificacionesActionPerformed
+
+    private void bt_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_registrarActionPerformed
+       String Administrador= lb_nomusuarios.getText();
+       String Asunto=ta_asunto.getText();
+       String Cuerpo=ta_mensajes.getText();
+       String tipo=(String) cb_tipo.getSelectedItem();
+       String estado="Activo";
+        try{
+            if(ta_mensajes.getText().isEmpty() ||  ta_asunto.getText().isEmpty() ){
+                
+                JOptionPane.showMessageDialog(null,"Campo vacios","Campo vacios",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/documento.png"));
+            }else{
+            Connection connection = Base_datos.getConnection();
+            PreparedStatement ps=connection.prepareStatement("INSERT INTO Mensajes (Administrador, Asunto, Cuerpo, TipoDeUsuarioAlQueSeDirige, Estado )VALUES(?,?,?,?,?)");
+            ps.setString(1, Administrador);
+            ps.setString(2, Asunto);
+            ps.setString(3, Cuerpo);
+            ps.setString(4, tipo);
+            ps.setString(5, estado);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"mensaje","mensaje enviado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/webservices-http-api-playsms-para-agregar-una-cuenta-de-usuario.png"));
+                ta_asunto.setText("");
+                ta_mensajes.setText("");
+            }
+        }catch(SQLException ex){
+            System.out.println(""+ex);
+        }
+    }//GEN-LAST:event_bt_registrarActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        cerrar();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void ta_mensajesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta_mensajesKeyTyped
+        if(ta_mensajes.getText().length() >= 200)
+    {
+        evt.consume();
+    }
+    }//GEN-LAST:event_ta_mensajesKeyTyped
+
+    private void ta_asuntoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta_asuntoKeyTyped
+        if( ta_asunto.getText().length() >= 50)
+    {
+        evt.consume();
+    }
+    }//GEN-LAST:event_ta_asuntoKeyTyped
+public void cerrar(){
+        Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        login ventana = new login();
+        ventana.setVisible(true);
+        this.setVisible(false);
+        }else{
+        }
+    }
+
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Notificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Notificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Notificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Notificaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Notificaciones().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton bt_administrar_Horarios;
-    private javax.swing.JToggleButton bt_administrar_Usuarios;
-    private javax.swing.JToggleButton bt_notificaciones;
-    private javax.swing.JToggleButton bt_reportes;
-    private javax.swing.JToggleButton bt_rondines;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel lb_administrarImg;
-    private javax.swing.JLabel lb_administrarUsuarioImg;
-    private javax.swing.JLabel lb_inventario;
-    private javax.swing.JLabel lb_invetaimg;
-    private javax.swing.JLabel lb_logoImg;
-    private javax.swing.JLabel lb_notificacionesimg;
-    private javax.swing.JLabel lb_reportesimg;
-    private javax.swing.JLabel lb_rondinesimg;
-    private javax.swing.JPanel pn_menuLateral;
-    private javax.swing.JPanel pn_principal;
+    private javax.swing.JButton bt_administarHorarios;
+    private javax.swing.JButton bt_administarUsuarios;
+    private javax.swing.JButton bt_inventario;
+    private javax.swing.JButton bt_notificaciones;
+    private javax.swing.JButton bt_registrar;
+    private javax.swing.JButton bt_reportes;
+    private javax.swing.JButton bt_rondines;
+    private javax.swing.JComboBox<String> cb_tipo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lb_asunto;
+    private javax.swing.JLabel lb_mensaje;
+    private javax.swing.JLabel lb_nomusuarios;
+    private javax.swing.JLabel lb_salon;
+    private javax.swing.JTextArea ta_asunto;
+    private javax.swing.JTextArea ta_mensajes;
     // End of variables declaration//GEN-END:variables
 }
