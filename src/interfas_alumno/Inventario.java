@@ -400,8 +400,8 @@ public class Inventario extends javax.swing.JFrame {
         if (eleccion == JOptionPane.YES_OPTION)
         {
         login ventana = new login();
-        ventana.setVisible(true);
         this.setVisible(false);
+        ventana.setVisible(true);
         }else{
         }
     }
