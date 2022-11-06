@@ -112,10 +112,37 @@ INSERT INTO Rondines (Id, Administrador, Salon, Comentario) values ('3747448', '
 INSERT INTO Equipos (Id, Salon, Estado, Teclado, Mouse, Monitor, Procesador, Almacenamiento) 
 values 
 ('LAS-PC1', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
-('LAS-PC2', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
-('LAS-PC3', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC2', 'LAS', 'Ocupada', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC3', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
 ('LAS-PC4', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
-('LAS-PC5', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC5', 'LAS', 'Ocupada', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC6', 'LAS', 'Ocupada', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC7', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC8', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC9', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC10', 'LAS', 'Ocupada', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC11', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC12', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC13', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC14', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC15', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC16', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC17', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC18', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC19', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC20', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC21', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC22', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC23', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC24', 'LAS', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC25', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC26', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC27', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC28', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC29', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC30', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC31', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
+('LAS-PC32', 'LAS', 'Mantenimiento', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
 ('LDM-PC1', 'LDM', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
 ('LDM-PC2', 'LDM', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
 ('LDM-PC3', 'LDM', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
@@ -137,7 +164,3 @@ values
 ('LSO-PC4', 'LSO', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro'),
 ('LSO-PC5', 'LSO', 'Activo', 'Razer BlackWidow V3', 'Razer', 'Alienware 17', 'i5 9300h', 'Samsung 980 Pro')
 ;
-
-SELECT *FROM usuarios;
-
- SELECT *FROM Mensajes

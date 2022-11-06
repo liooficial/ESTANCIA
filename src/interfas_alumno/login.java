@@ -11,6 +11,9 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -57,7 +60,12 @@ public class login extends javax.swing.JFrame {
                     ventana.setVisible(true);
                     this.setVisible(false); 
                     }else{
-                    Reservar_salon ventana = new Reservar_salon(tipo,nom);
+                        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss");
+                        Date date = new Date();
+                        DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
+                        String date2 = fecha.format(new Date());
+                        String hora=hora1.format(date);
+                    Reservar_salon ventana = new Reservar_salon(tipo,nom,date2,hora);
                     ventana.setVisible(true);
                     this.setVisible(false);
                     }

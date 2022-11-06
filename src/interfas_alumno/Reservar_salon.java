@@ -5,10 +5,13 @@
  */
 package interfas_alumno;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,8 +24,11 @@ public class Reservar_salon extends javax.swing.JFrame {
     /**
      * Creates new form Administrar_horario
      */
-    public Reservar_salon(final String tipo,String nom) {
+    public Reservar_salon(final String tipo,String nom,String fecha,String hora) {
         initComponents();
+        lb_nomusuario.setText(nom);
+        System.out.println(""+fecha);
+        System.out.println(""+hora);
         this.setLocationRelativeTo(null);
         verificar(tipo);
         if(tipo.equals("Docente")){
@@ -30,6 +36,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         }else{
         bt_registrarClase.setVisible(false);
         rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/estudiante.png");
+        cargar("LAS");
         }
     }
 
@@ -44,6 +51,8 @@ public class Reservar_salon extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lb_usuario = new javax.swing.JLabel();
+        lb_nomusuario = new javax.swing.JLabel();
+        lb_nomusuario1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lb_imgPC1 = new javax.swing.JLabel();
         lb_imgPC4 = new javax.swing.JLabel();
@@ -91,9 +100,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         lb_LPG = new javax.swing.JLabel();
         pn_LSO = new javax.swing.JPanel();
         lb_LSO = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(107, 8, 48));
 
@@ -104,6 +115,14 @@ public class Reservar_salon extends javax.swing.JFrame {
             }
         });
 
+        lb_nomusuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb_nomusuario.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nomusuario.setText("jLabel2");
+
+        lb_nomusuario1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb_nomusuario1.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nomusuario1.setText("usuario:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,19 +130,39 @@ public class Reservar_salon extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_nomusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lb_nomusuario1)
+                        .addGap(0, 20, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lb_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lb_nomusuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lb_nomusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 608, 250, 160));
 
         jPanel3.setBackground(new java.awt.Color(244, 244, 244));
 
         lb_imgPC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC1MouseClicked(evt);
+            }
+        });
 
         lb_imgPC4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
 
@@ -199,15 +238,15 @@ public class Reservar_salon extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(464, 464, 464)
                 .addComponent(bt_registrarClase)
-                .addGap(421, 421, 421))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(bt_registrarClase)
                 .addContainerGap())
         );
@@ -344,12 +383,20 @@ public class Reservar_salon extends javax.swing.JFrame {
                     .addComponent(lb_imgPC31, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_imgPC32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 88, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(1, 26, 93));
 
         pn_LAS.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LAS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LASMouseClicked(evt);
+            }
+        });
 
         lb_LAS.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         lb_LAS.setText("LAS");
@@ -372,6 +419,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         );
 
         pn_LDM.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LDM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LDMMouseClicked(evt);
+            }
+        });
 
         lb_LDM.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         lb_LDM.setText("LDM");
@@ -394,6 +446,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         );
 
         pn_LDS.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LDS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LDSMouseClicked(evt);
+            }
+        });
 
         lb_LDS.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         lb_LDS.setText("LDS");
@@ -416,6 +473,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         );
 
         pn_LPG.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LPG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LPGMouseClicked(evt);
+            }
+        });
 
         lb_LPG.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         lb_LPG.setText("LPG");
@@ -438,6 +500,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         );
 
         pn_LSO.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LSO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pn_LSOMouseClicked(evt);
+            }
+        });
 
         lb_LSO.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         lb_LSO.setText("LSO");
@@ -488,26 +555,10 @@ public class Reservar_salon extends javax.swing.JFrame {
                     .addComponent(pn_LSO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 0, 1120, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isc100X50.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -515,6 +566,39 @@ public class Reservar_salon extends javax.swing.JFrame {
     private void lb_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuarioMouseClicked
         cerrar();
     }//GEN-LAST:event_lb_usuarioMouseClicked
+
+    private void pn_LASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LASMouseClicked
+    cargar(lb_LAS.getText());
+    lb_LAS.setBackground(Color.red);
+    }//GEN-LAST:event_pn_LASMouseClicked
+
+    private void pn_LDMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LDMMouseClicked
+     cargar(lb_LDM.getText());
+    }//GEN-LAST:event_pn_LDMMouseClicked
+
+    private void pn_LDSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LDSMouseClicked
+        cargar(lb_LDS.getText());
+    }//GEN-LAST:event_pn_LDSMouseClicked
+
+    private void pn_LPGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LPGMouseClicked
+        cargar(lb_LPG.getText());
+    }//GEN-LAST:event_pn_LPGMouseClicked
+
+    private void pn_LSOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pn_LSOMouseClicked
+        cargar(lb_LSO.getText());
+    }//GEN-LAST:event_pn_LSOMouseClicked
+
+    private void lb_imgPC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC1MouseClicked
+        System.out.println(""+lb_imgPC1.getText());
+         Object [] opciones ={"Aceptar","Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea reservar la pc: "+lb_imgPC1.getText(),"Mensaje de Confirmacion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION)
+        {
+        }else{
+        }
+    }//GEN-LAST:event_lb_imgPC1MouseClicked
     public void cerrar(){
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
@@ -563,8 +647,47 @@ public class Reservar_salon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.toString());
         }       
     }
-    
-    
+    private void cargar(String salon) {
+        try {
+            String tipo=salon,estado="",id="";
+            int i=0;
+            JLabel a[] = {lb_imgPC1,lb_imgPC10,lb_imgPC11,lb_imgPC12,lb_imgPC13,lb_imgPC14,lb_imgPC15,lb_imgPC16,lb_imgPC17,lb_imgPC18,lb_imgPC19,lb_imgPC2,lb_imgPC20,lb_imgPC21,lb_imgPC22,lb_imgPC23,lb_imgPC24,lb_imgPC25,lb_imgPC26,lb_imgPC27,lb_imgPC28,lb_imgPC29,lb_imgPC3,lb_imgPC30,lb_imgPC31,lb_imgPC32,lb_imgPC4,lb_imgPC5,lb_imgPC6,lb_imgPC7,lb_imgPC8,lb_imgPC9};
+            Connection connection = Base_datos.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = connection.prepareStatement("SELECT  Id,Estado  FROM Equipos where Salon='"+tipo+"'ORDER BY Id ASC"); 
+            rs = ps.executeQuery();
+            while(rs.next()){
+                id=rs.getString("Id");
+                estado=rs.getString("Estado");
+                a[i].setText(id);
+                cargar2(a[i],estado);
+                i=1+i;
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }       
+    }
+    private void cargar2  (JLabel pc,String estado) {
+        try {
+           switch(estado) {
+            case "Activo":
+                rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-verde.png");
+            break;
+            case "Ocupada":
+                rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-rojo.png");
+            break;
+            case "Mantenimiento":
+                rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-amarillo.png");
+            break;
+            
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }       
+    }
     /**
      * @param args the command line arguments
      */
@@ -573,6 +696,7 @@ public class Reservar_salon extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_registrarClase;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -614,6 +738,8 @@ public class Reservar_salon extends javax.swing.JFrame {
     private javax.swing.JLabel lb_imgPC7;
     private javax.swing.JLabel lb_imgPC8;
     private javax.swing.JLabel lb_imgPC9;
+    private javax.swing.JLabel lb_nomusuario;
+    private javax.swing.JLabel lb_nomusuario1;
     private javax.swing.JLabel lb_usuario;
     private javax.swing.JPanel pn_LAS;
     private javax.swing.JPanel pn_LDM;
