@@ -114,6 +114,12 @@ public class Reservar_salon extends javax.swing.JFrame {
         lb_nomusuario = new javax.swing.JLabel();
         lb_nomusuario1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        libre = new javax.swing.JLabel();
+        libre1 = new javax.swing.JLabel();
+        libre2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,66 +137,221 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC4MouseClicked(evt);
+            }
+        });
 
         lb_imgPC3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC3MouseClicked(evt);
+            }
+        });
 
         lb_imgPC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC2MouseClicked(evt);
+            }
+        });
 
         lb_imgPC8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC8MouseClicked(evt);
+            }
+        });
 
         lb_imgPC7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC7MouseClicked(evt);
+            }
+        });
 
         lb_imgPC6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC6MouseClicked(evt);
+            }
+        });
 
         lb_imgPC5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC5MouseClicked(evt);
+            }
+        });
 
         lb_imgPC16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC16MouseClicked(evt);
+            }
+        });
 
         lb_imgPC15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC15MouseClicked(evt);
+            }
+        });
 
         lb_imgPC13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC13MouseClicked(evt);
+            }
+        });
 
         lb_imgPC14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC14MouseClicked(evt);
+            }
+        });
 
         lb_imgPC12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC12MouseClicked(evt);
+            }
+        });
 
         lb_imgPC11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC11MouseClicked(evt);
+            }
+        });
 
         lb_imgPC10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC10MouseClicked(evt);
+            }
+        });
 
         lb_imgPC9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC9MouseClicked(evt);
+            }
+        });
 
         lb_imgPC17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC17MouseClicked(evt);
+            }
+        });
 
         lb_imgPC20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC20MouseClicked(evt);
+            }
+        });
 
         lb_imgPC22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC22MouseClicked(evt);
+            }
+        });
 
         lb_imgPC18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC18MouseClicked(evt);
+            }
+        });
 
         lb_imgPC19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC19MouseClicked(evt);
+            }
+        });
 
         lb_imgPC23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC23MouseClicked(evt);
+            }
+        });
 
         lb_imgPC21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC21MouseClicked(evt);
+            }
+        });
 
         lb_imgPC24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC24MouseClicked(evt);
+            }
+        });
 
         lb_imgPC28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC28MouseClicked(evt);
+            }
+        });
 
         lb_imgPC27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC27MouseClicked(evt);
+            }
+        });
 
         lb_imgPC26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC26MouseClicked(evt);
+            }
+        });
 
         lb_imgPC25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC25MouseClicked(evt);
+            }
+        });
 
         lb_imgPC32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC32MouseClicked(evt);
+            }
+        });
 
         lb_imgPC31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC31MouseClicked(evt);
+            }
+        });
 
         lb_imgPC30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC30MouseClicked(evt);
+            }
+        });
 
         lb_imgPC29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_imgPC29MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
         jLabel1.setText("Laboratorio de Administración de servidores");
@@ -222,93 +383,95 @@ public class Reservar_salon extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(233, 233, 233))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lb_imgPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lb_imgPC2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lb_imgPC3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lb_imgPC4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(lb_imgPC25, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC26, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC28, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lb_imgPC9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(lb_imgPC17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC18, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC19, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_imgPC5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb_imgPC21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(68, 68, 68)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lb_imgPC22, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_imgPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC23, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_imgPC2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC24, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lb_imgPC3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lb_imgPC4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(lb_imgPC25, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC26, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC28, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC18, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC19, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lb_imgPC6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_imgPC5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_imgPC21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lb_imgPC14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lb_imgPC16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(lb_imgPC13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(294, 294, 294))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(lb_imgPC29, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC31, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lb_imgPC32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC22, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC23, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC24, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(lb_imgPC13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(294, 294, 294))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(lb_imgPC29, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC31, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lb_imgPC32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(294, 294, 294)))
                 .addGap(51, 51, 51))
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(59, 59, 59)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lb_imgPC1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_imgPC3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -582,8 +745,29 @@ public class Reservar_salon extends javax.swing.JFrame {
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 250, 160));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/isc100X50.png"))); // NOI18N
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 70));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 110));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-amarillo.png"))); // NOI18N
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 80, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-rojo.png"))); // NOI18N
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 80, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, -1));
+
+        libre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        libre.setText("Mantenimiento");
+        jPanel5.add(libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 140, 40));
+
+        libre1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        libre1.setText("Ocupada");
+        jPanel5.add(libre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 90, 30));
+
+        libre2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        libre2.setText("Libre");
+        jPanel5.add(libre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 60, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -634,30 +818,132 @@ public class Reservar_salon extends javax.swing.JFrame {
     }//GEN-LAST:event_pn_LSOMouseClicked
 
     private void lb_imgPC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC1MouseClicked
-        System.out.println(""+lb_imgPC1.getText());
-        if(lb_pc.getText().isEmpty()){
-           Object [] opciones ={"Aceptar","Cancelar"};
-        int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea reservar la pc: "+lb_imgPC1.getText(),"Mensaje de Confirmacion",
-        JOptionPane.YES_NO_OPTION,
-        JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
-        String estado="Ocupada",id=lb_imgPC1.getText();
-        if (eleccion == JOptionPane.YES_OPTION)
-        {   
-            try{
-               Connection con=Base_datos.getConnection();
-            PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado=? WHERE Id=?");
-            ps.setString(1, estado);
-            ps.setString(2, id);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro modificado","Registro modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/correo-electronico.png")); 
-            }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, ex.toString());
-             }
-        }else{
-        }
-        lb_pc.setText(lb_imgPC1.getText()); 
-        }
+        pc_reservar(lb_imgPC1);
     }//GEN-LAST:event_lb_imgPC1MouseClicked
+
+    private void lb_imgPC2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC2MouseClicked
+        pc_reservar(lb_imgPC2);
+    }//GEN-LAST:event_lb_imgPC2MouseClicked
+
+    private void lb_imgPC3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC3MouseClicked
+        pc_reservar(lb_imgPC3);
+    }//GEN-LAST:event_lb_imgPC3MouseClicked
+
+    private void lb_imgPC4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC4MouseClicked
+        pc_reservar(lb_imgPC4);
+    }//GEN-LAST:event_lb_imgPC4MouseClicked
+
+    private void lb_imgPC5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC5MouseClicked
+        pc_reservar(lb_imgPC5);
+    }//GEN-LAST:event_lb_imgPC5MouseClicked
+
+    private void lb_imgPC6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC6MouseClicked
+        pc_reservar(lb_imgPC6);
+    }//GEN-LAST:event_lb_imgPC6MouseClicked
+
+    private void lb_imgPC7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC7MouseClicked
+        pc_reservar(lb_imgPC7);
+    }//GEN-LAST:event_lb_imgPC7MouseClicked
+
+    private void lb_imgPC8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC8MouseClicked
+        pc_reservar(lb_imgPC8);
+    }//GEN-LAST:event_lb_imgPC8MouseClicked
+
+    private void lb_imgPC9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC9MouseClicked
+        pc_reservar(lb_imgPC9);
+    }//GEN-LAST:event_lb_imgPC9MouseClicked
+
+    private void lb_imgPC10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC10MouseClicked
+        pc_reservar(lb_imgPC10);
+    }//GEN-LAST:event_lb_imgPC10MouseClicked
+
+    private void lb_imgPC11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC11MouseClicked
+        pc_reservar(lb_imgPC11);
+    }//GEN-LAST:event_lb_imgPC11MouseClicked
+
+    private void lb_imgPC12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC12MouseClicked
+        pc_reservar(lb_imgPC12);
+    }//GEN-LAST:event_lb_imgPC12MouseClicked
+
+    private void lb_imgPC13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC13MouseClicked
+        pc_reservar(lb_imgPC13);
+    }//GEN-LAST:event_lb_imgPC13MouseClicked
+
+    private void lb_imgPC14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC14MouseClicked
+        pc_reservar(lb_imgPC14);
+    }//GEN-LAST:event_lb_imgPC14MouseClicked
+
+    private void lb_imgPC15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC15MouseClicked
+        pc_reservar(lb_imgPC15);
+    }//GEN-LAST:event_lb_imgPC15MouseClicked
+
+    private void lb_imgPC16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC16MouseClicked
+        pc_reservar(lb_imgPC16);
+    }//GEN-LAST:event_lb_imgPC16MouseClicked
+
+    private void lb_imgPC17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC17MouseClicked
+        pc_reservar(lb_imgPC17);
+    }//GEN-LAST:event_lb_imgPC17MouseClicked
+
+    private void lb_imgPC18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC18MouseClicked
+        pc_reservar(lb_imgPC18);
+    }//GEN-LAST:event_lb_imgPC18MouseClicked
+
+    private void lb_imgPC19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC19MouseClicked
+        pc_reservar(lb_imgPC19);
+    }//GEN-LAST:event_lb_imgPC19MouseClicked
+
+    private void lb_imgPC20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC20MouseClicked
+        pc_reservar(lb_imgPC20);
+    }//GEN-LAST:event_lb_imgPC20MouseClicked
+
+    private void lb_imgPC21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC21MouseClicked
+        pc_reservar(lb_imgPC21);
+    }//GEN-LAST:event_lb_imgPC21MouseClicked
+
+    private void lb_imgPC22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC22MouseClicked
+        pc_reservar(lb_imgPC22);
+    }//GEN-LAST:event_lb_imgPC22MouseClicked
+
+    private void lb_imgPC23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC23MouseClicked
+        pc_reservar(lb_imgPC23);
+    }//GEN-LAST:event_lb_imgPC23MouseClicked
+
+    private void lb_imgPC24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC24MouseClicked
+        pc_reservar(lb_imgPC24);
+    }//GEN-LAST:event_lb_imgPC24MouseClicked
+
+    private void lb_imgPC25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC25MouseClicked
+        pc_reservar(lb_imgPC25);
+    }//GEN-LAST:event_lb_imgPC25MouseClicked
+
+    private void lb_imgPC26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC26MouseClicked
+        pc_reservar(lb_imgPC26);
+    }//GEN-LAST:event_lb_imgPC26MouseClicked
+
+    private void lb_imgPC27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC27MouseClicked
+        pc_reservar(lb_imgPC27);
+    }//GEN-LAST:event_lb_imgPC27MouseClicked
+
+    private void lb_imgPC28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC28MouseClicked
+        pc_reservar(lb_imgPC28);
+    }//GEN-LAST:event_lb_imgPC28MouseClicked
+
+    private void lb_imgPC29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC29MouseClicked
+        pc_reservar(lb_imgPC29);
+    }//GEN-LAST:event_lb_imgPC29MouseClicked
+
+    private void lb_imgPC30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC30MouseClicked
+        pc_reservar(lb_imgPC30);
+    }//GEN-LAST:event_lb_imgPC30MouseClicked
+
+    private void lb_imgPC31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC31MouseClicked
+        pc_reservar(lb_imgPC31);
+    }//GEN-LAST:event_lb_imgPC31MouseClicked
+
+    private void lb_imgPC32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC32MouseClicked
+        pc_reservar(lb_imgPC32);
+    }//GEN-LAST:event_lb_imgPC32MouseClicked
     public void cerrar(){
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
@@ -733,11 +1019,9 @@ public class Reservar_salon extends javax.swing.JFrame {
            switch(estado) {
             case "Activo":
                 rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-verde.png");
-                pc.setEnabled(true);
             break;
             case "Ocupada":
                 rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-rojo.png");
-                pc.setEnabled(false);
             break;
             case "Mantenimiento":
                 rsscalelabel.RSScaleLabel.setScaleLabel(pc,"src/img/computadora-amarillo.png");
@@ -801,7 +1085,55 @@ public class Reservar_salon extends javax.swing.JFrame {
         }
     };
     timer.schedule(task, 0,1000);
-}
+    }
+    private void pc_reservar  (JLabel pc) {
+        
+        System.out.println(""+pc.getText());
+        String estadoi="";
+        try{
+        Connection connection = Base_datos.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = connection.prepareStatement("SELECT  Estado  FROM Equipos where Id='"+pc.getText()+"'"); 
+            rs = ps.executeQuery();
+            while(rs.next()){
+                estadoi=rs.getString("Estado");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }
+        if(estadoi.equals("Activo")){
+            if(lb_pc.getText().isEmpty()){
+                Object [] opciones ={"Aceptar","Cancelar"};
+                int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea reservar la pc: "+pc.getText(),"Mensaje de Confirmacion",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
+                String estado="Ocupada",id=pc.getText();
+                if (eleccion == JOptionPane.YES_OPTION)
+                {   
+                    try{
+                        Connection con=Base_datos.getConnection();
+                        PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado=? WHERE Id=?");
+                        ps.setString(1, estado);
+                        ps.setString(2, id);
+                        ps.executeUpdate();
+                        JOptionPane.showMessageDialog(null,"Computadora Reservada","Computadora modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/accept.png")); 
+                    }catch(SQLException ex){
+                        JOptionPane.showMessageDialog(null, ex.toString());
+                    }
+                    lb_pc.setText(pc.getText());
+                } 
+            }else{
+                JOptionPane.showMessageDialog(null,"Ya Reservada la Computadora"+lb_pc.getText(),"Computadora modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/cerrarinicio.png"));
+            }
+        }
+        if(estadoi.equals("Ocupada")){
+           JOptionPane.showMessageDialog(null,"LA Computadora "+pc.getText()+" esta  Ocupada","Computadora Ocupada ",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/cerrarinicio.png"));  
+        }
+        if(estadoi.equals("Mantenimiento")){
+          JOptionPane.showMessageDialog(null,"LA Computadora "+pc.getText()+" esta  en Mantenimiento","Computadora en Mantenimiento",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/cerrarinicio.png"));   
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -811,6 +1143,9 @@ public class Reservar_salon extends javax.swing.JFrame {
     private javax.swing.JButton bt_registrarClase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -858,6 +1193,9 @@ public class Reservar_salon extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nomusuario1;
     private javax.swing.JLabel lb_pc;
     private javax.swing.JLabel lb_usuario;
+    private javax.swing.JLabel libre;
+    private javax.swing.JLabel libre1;
+    private javax.swing.JLabel libre2;
     private javax.swing.JPanel pn_LAS;
     private javax.swing.JPanel pn_LDM;
     private javax.swing.JPanel pn_LDS;
