@@ -11,7 +11,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -341,8 +348,69 @@ public class Reportes extends javax.swing.JFrame {
 
     private void bt_generarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_generarReporteActionPerformed
         SimpleDateFormat FF=new SimpleDateFormat("dd/MM/yyyy");
-        String fi=FF.format(date_inicio.getCalendar().getTime()),ff=FF.format(date_fin.getCalendar().getTime());
-        System.out.println("tabla: "+cb_tipo.getSelectedItem()+"escogio a : "+cb_tipoc.getSelectedItem()+"fecha1: "+fi+"fecha2: "+ff);
+        String  fi="",ff="";
+        if(date_inicio.getCalendar() == null){
+         fi = FF.format(new Date());
+         ff = FF.format(new Date());
+        }else{
+             fi=FF.format(date_inicio.getCalendar().getTime());
+            if(date_fin.getCalendar() == null){
+             ff=fi;
+            }else{
+             ff=FF.format(date_fin.getCalendar().getTime());  
+            }
+        }
+        
+        System.out.println("tabla: "+cb_tipo.getSelectedItem()+" escogio a : "+cb_tipoc.getSelectedItem()+"fecha1: "+fi+"fecha2: "+ff);
+        try {
+        Connection connection = Base_datos.getConnection();
+        HashMap map = new HashMap(); //aqui se agregan los parametros y valores
+        JasperReport reporte;
+        JasperPrint jasperPrint=null ;
+        switch ((String) cb_tipo.getSelectedItem()) { 
+           case "Alumnos":
+                    map.put("ID",cb_tipoc.getSelectedItem());
+                    map.put("fechai",fi);
+                    map.put("fechaf",ff);
+                    String path="src\\report\\Alumno.jasper";
+                    reporte=(JasperReport) JRLoader.loadObject(path);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+            break;
+            /*case "Salones":  
+                map.put("ID",cb_tipoc.getSelectedItem());
+                    map.put("fechai",fi);
+                    map.put("fechaf",ff);
+                    String path="src\\report\\Alumno.jasper";
+                    reporte=(JasperReport) JRLoader.loadObject(path);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+            break;
+            case "Profesores": 
+                map.put("ID",cb_tipoc.getSelectedItem());
+                    map.put("fechai",fi);
+                    map.put("fechaf",ff);
+                    String path="src\\report\\Alumno.jasper";
+                    reporte=(JasperReport) JRLoader.loadObject(path);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+            break;
+            case "Equipo":
+                   map.put("ID",cb_tipoc.getSelectedItem());
+                    map.put("fechai",fi);
+                    map.put("fechaf",ff);
+                    String path="src\\report\\Alumno.jasper";
+                    reporte=(JasperReport) JRLoader.loadObject(path);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+            break;*/
+            default: 
+            }              
+            if(jasperPrint != null){
+                net.sf.jasperreports.view.JasperViewer ac = new JasperViewer(jasperPrint, false);
+                ac.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                ac.setVisible(true);
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }  
     }//GEN-LAST:event_bt_generarReporteActionPerformed
 
     private void cb_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_tipoItemStateChanged
@@ -408,9 +476,9 @@ public class Reportes extends javax.swing.JFrame {
         ArrayList  Alumnos =new ArrayList<>();
         try {
             stmt = connection.createStatement();
-            rs = stmt.executeQuery("SELECT Nombre FROM Usuarios WHERE TipoUsuario='Estudiante'");
+            rs = stmt.executeQuery("SELECT Id FROM Usuarios WHERE TipoUsuario='Estudiante'");
             while (rs.next()) {
-                Alumnos.add(rs.getString("Nombre"));
+                Alumnos.add(rs.getString("Id"));
             }
         } catch (SQLException ex) {
            

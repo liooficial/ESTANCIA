@@ -31,6 +31,7 @@ public class Observaciones extends javax.swing.JFrame {
         jLabel7.setText(hora);
         jLabel8.setText(equipo);
         jLabel9.setText(usuario);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -57,6 +58,7 @@ public class Observaciones extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1400, 800));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 7, 14));
@@ -127,9 +129,11 @@ public class Observaciones extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(555, 555, 555))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(629, 629, 629))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,20 +151,20 @@ public class Observaciones extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(335, 335, 335))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(261, 261, 261))))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(185, 185, 185))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,29 +183,34 @@ public class Observaciones extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String estado="Activo",id=jLabel8.getText(),Fecha=jLabel6.getText(),Usuario=jLabel9.getText(),Comentario=jTextArea1.getText(),inicio=jLabel7.getText();
-         DateFormat hora1 = new SimpleDateFormat("HH:mm:ss");
-                        Date date = new Date();
-                        String fin=hora1.format(date);
+        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        String fin=hora1.format(date);
+        System.out.println(""+id);
         try{
-        Connection con=Base_datos.getConnection();
-        PreparedStatement ps1=con.prepareStatement("INSERT INTO Observaciones (Fecha, Usuario, Equipo, Comentario, inicio,fin )VALUES(?,?,?,?,?,?)");
-        ps1.setString(1, Fecha);
-        ps1.setString(2, Usuario);
-        ps1.setString(3, id);
-        ps1.setString(4, Comentario);
-        ps1.setString(5, inicio);
-        ps1.setString(6, fin);
-        ps1.executeUpdate();
-            
-        PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado=? WHERE Id=?");
-        ps.setString(1, estado);
-        ps.setString(2, id);
-        ps.executeUpdate();
-         
-        login ventana = new login();
-        ventana.setVisible(true);
-        this.setVisible(false);   
-       }catch (Exception ex){
+            if(id.isEmpty()){
+                login ventana = new login();
+                ventana.setVisible(true);
+                this.setVisible(false);   
+            }else{  
+                Connection con=Base_datos.getConnection();
+                PreparedStatement ps1=con.prepareStatement("INSERT INTO Observaciones (Fecha, Usuario, Equipo, Comentario, inicio,fin )VALUES(?,?,?,?,?,?)");
+                ps1.setString(1, Fecha);
+                ps1.setString(2, Usuario);
+                ps1.setString(3, id);
+                ps1.setString(4, Comentario);
+                ps1.setString(5, inicio);
+                ps1.setString(6, fin);
+                ps1.executeUpdate();
+                PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado=? WHERE Id=?");
+                ps.setString(1, estado);
+                ps.setString(2, id);
+                ps.executeUpdate();
+                login ventana = new login();
+                ventana.setVisible(true);
+                this.setVisible(false); 
+            }
+        }catch (Exception ex){
            System.out.println("Error: " + ex.getMessage());
             JOptionPane.showMessageDialog(null, ex.toString());
        }
