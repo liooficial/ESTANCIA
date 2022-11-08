@@ -127,6 +127,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(244, 244, 244));
 
         lb_imgPC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC1MouseClicked(evt);
@@ -134,6 +135,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC4MouseClicked(evt);
@@ -141,6 +143,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC3MouseClicked(evt);
@@ -148,6 +151,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC2MouseClicked(evt);
@@ -155,6 +159,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC8MouseClicked(evt);
@@ -162,6 +167,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC7MouseClicked(evt);
@@ -169,6 +175,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC6MouseClicked(evt);
@@ -176,6 +183,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC5MouseClicked(evt);
@@ -183,6 +191,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC16MouseClicked(evt);
@@ -190,6 +199,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC15MouseClicked(evt);
@@ -197,6 +207,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC13MouseClicked(evt);
@@ -204,6 +215,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC14MouseClicked(evt);
@@ -211,6 +223,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC12MouseClicked(evt);
@@ -218,6 +231,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC11MouseClicked(evt);
@@ -225,6 +239,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC10MouseClicked(evt);
@@ -232,6 +247,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC9MouseClicked(evt);
@@ -239,6 +255,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC17MouseClicked(evt);
@@ -246,6 +263,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC20MouseClicked(evt);
@@ -253,6 +271,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC22MouseClicked(evt);
@@ -260,6 +279,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC18MouseClicked(evt);
@@ -267,6 +287,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC19MouseClicked(evt);
@@ -274,6 +295,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC23MouseClicked(evt);
@@ -281,6 +303,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC21MouseClicked(evt);
@@ -288,6 +311,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC24MouseClicked(evt);
@@ -295,6 +319,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC28MouseClicked(evt);
@@ -302,6 +327,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC27MouseClicked(evt);
@@ -309,6 +335,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC26MouseClicked(evt);
@@ -316,6 +343,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC25MouseClicked(evt);
@@ -323,6 +351,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC32MouseClicked(evt);
@@ -330,6 +359,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC31MouseClicked(evt);
@@ -337,6 +367,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC30MouseClicked(evt);
@@ -344,6 +375,7 @@ public class Reservar_salon extends javax.swing.JFrame {
         });
 
         lb_imgPC29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        lb_imgPC29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lb_imgPC29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_imgPC29MouseClicked(evt);

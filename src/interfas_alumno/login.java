@@ -146,6 +146,11 @@ public class login extends javax.swing.JFrame {
                 btn_ingresoActionPerformed(evt);
             }
         });
+        btn_ingreso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btn_ingresoKeyTyped(evt);
+            }
+        });
 
         txtfid_contraseña.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txtfid_contraseña.setForeground(new java.awt.Color(204, 204, 204));
@@ -158,6 +163,11 @@ public class login extends javax.swing.JFrame {
         txtfid_contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfid_contraseñaActionPerformed(evt);
+            }
+        });
+        txtfid_contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtfid_contraseñaKeyPressed(evt);
             }
         });
 
@@ -197,6 +207,11 @@ public class login extends javax.swing.JFrame {
         CheckBox_mostrarContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckBox_mostrarContraseñaActionPerformed(evt);
+            }
+        });
+        CheckBox_mostrarContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CheckBox_mostrarContraseñaKeyPressed(evt);
             }
         });
 
@@ -372,18 +387,34 @@ public class login extends javax.swing.JFrame {
             TextField_usuario.setForeground(Color.gray);
             }
         }
-        if(evt.getKeyCode()== KeyEvent.VK_TAB){
-            txtfid_contraseña.requestFocus();
-            if(String.valueOf(txtfid_contraseña.getPassword()).equals("******")){
-            txtfid_contraseña.setText("");
-            txtfid_contraseña.setForeground(Color.black);
-            }
-            if(TextField_usuario.getText().isEmpty()){
-            TextField_usuario.setText("Ingrese su usuario");
-            TextField_usuario.setForeground(Color.gray);
+    }//GEN-LAST:event_TextField_usuarioKeyPressed
+
+    private void txtfid_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfid_contraseñaKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            CheckBox_mostrarContraseña.requestFocus();  
+        }
+    }//GEN-LAST:event_txtfid_contraseñaKeyPressed
+
+    private void CheckBox_mostrarContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CheckBox_mostrarContraseñaKeyPressed
+       if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            if(CheckBox_mostrarContraseña.isSelected()){
+                txtfid_contraseña.setEchoChar((char)0);
+            }else{  
+                txtfid_contraseña.setEchoChar('*');
             }
         }
-    }//GEN-LAST:event_TextField_usuarioKeyPressed
+       if(evt.getKeyCode()== KeyEvent.VK_TAB){
+            btn_ingreso.requestFocus();  
+        }
+    }//GEN-LAST:event_CheckBox_mostrarContraseñaKeyPressed
+
+    private void btn_ingresoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_ingresoKeyTyped
+        if(TextField_usuario.getText().equals("Ingrese su usuario") ||  String.valueOf(txtfid_contraseña.getPassword()).equals("******")){
+            JOptionPane.showMessageDialog(null,"Campos vacios","Campos vacios",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/documento.png"));
+            }else{
+        verificar();
+        }
+    }//GEN-LAST:event_btn_ingresoKeyTyped
 
     /**
      * @param args the command line arguments
