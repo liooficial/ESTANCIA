@@ -31,23 +31,20 @@ public class Reservar_salon extends javax.swing.JFrame {
     public Reservar_salon(final String tipo,String nom,String fecha,String hora) {
         initComponents();
         lb_nomusuario.setText(nom);
+        lb_fecha.setText(fecha);
+        lb_hora.setText(hora);
         pn_LAS.setBackground(new Color(244,244,244));
-        System.out.println(""+fecha);
-        System.out.println(""+hora);
-      
         this.setLocationRelativeTo(null);
         lb_nombresalon.setVisible(false);
-        verificar(tipo);
+        lb_pc.setVisible(false);
+        verificar(tipo);  
         ATUALIZACION_REAL();
-        
-        
         if(tipo.equals("Docente")){
         rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/profesor.png");
         }else{
         bt_registrarClase.setVisible(false);
         rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/estudiante.png");
         }
-        
     }
 
     /**
@@ -115,8 +112,8 @@ public class Reservar_salon extends javax.swing.JFrame {
         lb_nomusuario1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lb_hora = new javax.swing.JLabel();
+        lb_fecha = new javax.swing.JLabel();
         libre = new javax.swing.JLabel();
         libre1 = new javax.swing.JLabel();
         libre2 = new javax.swing.JLabel();
@@ -751,11 +748,11 @@ public class Reservar_salon extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-amarillo.png"))); // NOI18N
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 80, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-rojo.png"))); // NOI18N
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 80, -1));
+        lb_hora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-rojo.png"))); // NOI18N
+        jPanel5.add(lb_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 80, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, -1));
+        lb_fecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computadora-verde.png"))); // NOI18N
+        jPanel5.add(lb_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, -1));
 
         libre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         libre.setText("Mantenimiento");
@@ -945,13 +942,14 @@ public class Reservar_salon extends javax.swing.JFrame {
         pc_reservar(lb_imgPC32);
     }//GEN-LAST:event_lb_imgPC32MouseClicked
     public void cerrar(){
+        String equipo_usado=lb_pc.getText(),fecha=lb_fecha.getText(),hora=lb_hora.getText(),nom=lb_nomusuario.getText();
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
         JOptionPane.YES_NO_OPTION,
         JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
         if (eleccion == JOptionPane.YES_OPTION)
         {
-        login ventana = new login();
+        Observaciones ventana = new Observaciones( fecha, hora, equipo_usado, nom);
         ventana.setVisible(true);
         this.setVisible(false);
         }else{
@@ -1041,7 +1039,8 @@ public class Reservar_salon extends javax.swing.JFrame {
                 pn_LDM.setBackground(new Color(81,209,12));
                 pn_LDS.setBackground(new Color(81,209,12));
                 pn_LPG.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12));      
+                pn_LSO.setBackground(new Color(81,209,12));
+                jLabel1.setText("Laboratorio de Administración de servidores");
             break;
             case "LDM":
                 pn_LDM.setBackground(new Color(244,244,244));
@@ -1049,6 +1048,7 @@ public class Reservar_salon extends javax.swing.JFrame {
                 pn_LDS.setBackground(new Color(81,209,12));
                 pn_LPG.setBackground(new Color(81,209,12));
                 pn_LSO.setBackground(new Color(81,209,12)); 
+                jLabel1.setText("Laboratorio de Dispocitivos Moviles");
             break;
             case "LDS":
                 pn_LDS.setBackground(new Color(244,244,244));
@@ -1056,13 +1056,15 @@ public class Reservar_salon extends javax.swing.JFrame {
                 pn_LAS.setBackground(new Color(81,209,12));
                 pn_LPG.setBackground(new Color(81,209,12));
                 pn_LSO.setBackground(new Color(81,209,12)); 
+                jLabel1.setText("Laboratorio de Desarrollo de Software");
             break;
             case "LPG":
                 pn_LPG.setBackground(new Color(244,244,244));
                 pn_LDM.setBackground(new Color(81,209,12));
                 pn_LDS.setBackground(new Color(81,209,12));
                 pn_LAS.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12)); 
+                pn_LSO.setBackground(new Color(81,209,12));
+                jLabel1.setText("Laborio de  Programacion General");
             break;
             case "LSO":
                 pn_LSO.setBackground(new Color(244,244,244));
@@ -1070,6 +1072,7 @@ public class Reservar_salon extends javax.swing.JFrame {
                 pn_LDS.setBackground(new Color(81,209,12));
                 pn_LPG.setBackground(new Color(81,209,12));
                 pn_LAS.setBackground(new Color(81,209,12)); 
+                jLabel1.setText("Laboratorio de Sistemas Operativos");
             break;
             }
         } catch (Exception ex) {
@@ -1084,7 +1087,7 @@ public class Reservar_salon extends javax.swing.JFrame {
             cargar(lb_nombresalon.getText());
         }
     };
-    timer.schedule(task, 0,1000);
+    timer.schedule(task, 0,500);
     }
     private void pc_reservar  (JLabel pc) {
         
@@ -1144,8 +1147,6 @@ public class Reservar_salon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1156,6 +1157,8 @@ public class Reservar_salon extends javax.swing.JFrame {
     private javax.swing.JLabel lb_LDS;
     private javax.swing.JLabel lb_LPG;
     private javax.swing.JLabel lb_LSO;
+    private javax.swing.JLabel lb_fecha;
+    private javax.swing.JLabel lb_hora;
     private javax.swing.JLabel lb_imgPC1;
     private javax.swing.JLabel lb_imgPC10;
     private javax.swing.JLabel lb_imgPC11;

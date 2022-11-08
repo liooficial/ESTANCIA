@@ -56,7 +56,7 @@ public class login extends javax.swing.JFrame {
             if (usuario1.equals(usuario)) {
                 if (contraseña1.equals(contraseña)) {
                     if (tipo.equals("Administrador")) {
-                    Administrar_horario2 ventana = new Administrar_horario2( nom);
+                    Administrar_horario2 ventana = new Administrar_horario2( usuario1);
                     ventana.setVisible(true);
                     this.setVisible(false); 
                     }else{
@@ -65,7 +65,7 @@ public class login extends javax.swing.JFrame {
                         DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
                         String date2 = fecha.format(new Date());
                         String hora=hora1.format(date);
-                    Reservar_salon ventana = new Reservar_salon(tipo,nom,date2,hora);
+                    Reservar_salon ventana = new Reservar_salon(tipo,usuario1,date2,hora);
                     ventana.setVisible(true);
                     this.setVisible(false);
                     }
