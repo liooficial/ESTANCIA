@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -1100,52 +1101,55 @@ public class Reservar_salon extends javax.swing.JFrame {
             Connection con=Base_datos.getConnection();
             PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado='Ocupada' WHERE Salon='"+salon+"'");
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Computadora Reservada","Computadora modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/accept.png")); 
+            PreparedStatement ps2=con.prepareStatement("UPDATE Salones SET Estado='OCUPADO' WHERE id='"+salon+"'");
+            ps2.executeUpdate();
+            JOptionPane.showMessageDialog(null,"salon Reservado","salon modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/accept.png")); 
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex.toString());
         }
     }
     private void salon  (String salon) {
         try {
+            
            switch(salon) {
             case "LAS":
                 pn_LAS.setBackground(new Color(244,244,244));
-                pn_LDM.setBackground(new Color(81,209,12));
-                pn_LDS.setBackground(new Color(81,209,12));
-                pn_LPG.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12));
+                CAMBIAR  (pn_LDM,"LDM");
+                CAMBIAR  (pn_LDS,"LDS");
+                CAMBIAR  (pn_LPG,"LPG");
+                CAMBIAR  (pn_LSO,"LSO");
                 jLabel1.setText("Laboratorio de Administración de servidores");
             break;
             case "LDM":
                 pn_LDM.setBackground(new Color(244,244,244));
-                pn_LAS.setBackground(new Color(81,209,12));
-                pn_LDS.setBackground(new Color(81,209,12));
-                pn_LPG.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12)); 
+                CAMBIAR  (pn_LAS,"LAS");
+                CAMBIAR  (pn_LDS,"LDS");
+                CAMBIAR  (pn_LPG,"LPG");
+                CAMBIAR  (pn_LSO,"LSO");
                 jLabel1.setText("Laboratorio de Dispocitivos Moviles");
             break;
             case "LDS":
                 pn_LDS.setBackground(new Color(244,244,244));
-                pn_LDM.setBackground(new Color(81,209,12));
-                pn_LAS.setBackground(new Color(81,209,12));
-                pn_LPG.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12)); 
+                CAMBIAR  (pn_LAS,"LAS");
+                CAMBIAR  (pn_LDM,"LDM");
+                CAMBIAR  (pn_LPG,"LPG");
+                CAMBIAR  (pn_LSO,"LSO");
                 jLabel1.setText("Laboratorio de Desarrollo de Software");
             break;
             case "LPG":
                 pn_LPG.setBackground(new Color(244,244,244));
-                pn_LDM.setBackground(new Color(81,209,12));
-                pn_LDS.setBackground(new Color(81,209,12));
-                pn_LAS.setBackground(new Color(81,209,12));
-                pn_LSO.setBackground(new Color(81,209,12));
+                CAMBIAR  (pn_LAS,"LAS");
+                CAMBIAR  (pn_LDS,"LDS");
+                CAMBIAR  (pn_LDM,"LDM");
+                CAMBIAR  (pn_LSO,"LSO");
                 jLabel1.setText("Laborio de  Programacion General");
             break;
             case "LSO":
                 pn_LSO.setBackground(new Color(244,244,244));
-                pn_LDM.setBackground(new Color(81,209,12));
-                pn_LDS.setBackground(new Color(81,209,12));
-                pn_LPG.setBackground(new Color(81,209,12));
-                pn_LAS.setBackground(new Color(81,209,12)); 
+                CAMBIAR  (pn_LAS,"LAS");
+                CAMBIAR  (pn_LDS,"LDS");
+                CAMBIAR  (pn_LPG,"LPG");
+                CAMBIAR  (pn_LDM,"LDM");
                 jLabel1.setText("Laboratorio de Sistemas Operativos");
             break;
             }
@@ -1154,6 +1158,33 @@ public class Reservar_salon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.toString());
         }       
     }
+    private void CAMBIAR  (JPanel salon,String salon_id) {
+        String  estado="";
+        try {
+            Connection con=Base_datos.getConnection();
+            ResultSet rs;
+            PreparedStatement ps=con.prepareStatement("SELECT Estado FROM Salones WHERE  Id='"+salon_id+"'");
+            
+            rs=ps.executeQuery();
+            while(rs.next()){
+            estado=rs.getString("Estado");
+            }
+           switch(estado) {
+               //verde
+            case "Activo":
+                salon.setBackground(new Color(81,209,12));
+            break;
+            //gris selecionado
+            case "OCUPADO":
+                salon.setBackground(new Color(255,0,0));
+            break;
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }       
+    }
+    
     public void ATUALIZACION_REAL() {
         Timer timer = new Timer();
     TimerTask task = new TimerTask() {
