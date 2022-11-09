@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -33,6 +34,7 @@ public class Reportes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         lb_nombreDelUsuario.setText(nom);
+        date_fin.setMinSelectableDate(date_inicio.getCalendar().getTime());
         llenar((String) cb_tipo.getSelectedItem());
     }
 
@@ -116,7 +118,7 @@ public class Reportes extends javax.swing.JFrame {
         pn_rojoLayout.setVerticalGroup(
             pn_rojoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_rojoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(lb_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lb_nombreDelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,6 +296,8 @@ public class Reportes extends javax.swing.JFrame {
 
         date_fin.setBackground(new java.awt.Color(255, 255, 255));
         date_fin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        date_fin.setMaxSelectableDate(new java.util.Date(253370790064000L));
+        date_fin.setMinSelectableDate(new java.util.Date(-62135744336000L));
         pn_principal.add(date_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, 201, 56));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -317,7 +321,7 @@ public class Reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_administrar_HorariosActionPerformed
 
     private void bt_administrar_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administrar_UsuariosActionPerformed
-        Usuarios ventana = new Usuarios( );
+        Usuarios ventana = new Usuarios(lb_nombreDelUsuario.getText());
         ventana.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bt_administrar_UsuariosActionPerformed
@@ -357,11 +361,9 @@ public class Reportes extends javax.swing.JFrame {
             if(date_fin.getCalendar() == null){
              ff=fi;
             }else{
-             ff=FF.format(date_fin.getCalendar().getTime());  
+                ff=FF.format(date_fin.getCalendar().getTime());  
             }
         }
-        
-        System.out.println("tabla: "+cb_tipo.getSelectedItem()+" escogio a : "+cb_tipoc.getSelectedItem()+"fecha1: "+fi+"fecha2: "+ff);
         try {
         Connection connection = Base_datos.getConnection();
         HashMap map = new HashMap(); //aqui se agregan los parametros y valores
@@ -376,30 +378,30 @@ public class Reportes extends javax.swing.JFrame {
                     reporte=(JasperReport) JRLoader.loadObject(path);
                     jasperPrint = JasperFillManager.fillReport(path, map, connection);
             break;
-            /*case "Salones":  
-                map.put("ID",cb_tipoc.getSelectedItem());
+            case "Salones":  
+               /* map.put("ID",cb_tipoc.getSelectedItem());
                     map.put("fechai",fi);
                     map.put("fechaf",ff);
                     String path="src\\report\\Alumno.jasper";
                     reporte=(JasperReport) JRLoader.loadObject(path);
-                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);*/
             break;
             case "Profesores": 
-                map.put("ID",cb_tipoc.getSelectedItem());
+                /*map.put("ID",cb_tipoc.getSelectedItem());
                     map.put("fechai",fi);
                     map.put("fechaf",ff);
                     String path="src\\report\\Alumno.jasper";
                     reporte=(JasperReport) JRLoader.loadObject(path);
-                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);*/
             break;
             case "Equipo":
-                   map.put("ID",cb_tipoc.getSelectedItem());
+                   /*map.put("ID",cb_tipoc.getSelectedItem());
                     map.put("fechai",fi);
                     map.put("fechaf",ff);
                     String path="src\\report\\Alumno.jasper";
                     reporte=(JasperReport) JRLoader.loadObject(path);
-                    jasperPrint = JasperFillManager.fillReport(path, map, connection);
-            break;*/
+                    jasperPrint = JasperFillManager.fillReport(path, map, connection);*/
+            break;
             default: 
             }              
             if(jasperPrint != null){

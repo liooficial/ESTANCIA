@@ -366,7 +366,7 @@ public class Notificaciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_administarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administarUsuariosActionPerformed
-       Usuarios ventana = new Usuarios( );
+       Usuarios ventana = new Usuarios(lb_nomusuarios.getText());
                 ventana.setVisible(true);
                 this.setVisible(false);
     }//GEN-LAST:event_bt_administarUsuariosActionPerformed

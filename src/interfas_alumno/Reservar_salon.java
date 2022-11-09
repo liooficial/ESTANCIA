@@ -24,28 +24,29 @@ import javax.swing.table.DefaultTableModel;
  * @author Geovanni
  */
 public class Reservar_salon extends javax.swing.JFrame {
-
+    String TIPO ,USUARIO,FECHA,HORA;
     /**
      * Creates new form Administrar_horario
      */
     public Reservar_salon(final String tipo,String nom,String fecha,String hora) {
         initComponents();
-        lb_nomusuario.setText(nom);
-        lb_fecha.setText(fecha);
-        lb_hora.setText(hora);
-        pn_LAS.setBackground(new Color(244,244,244));
-        this.setLocationRelativeTo(null);
-        lb_nombresalon.setVisible(false);
-        lb_pc.setVisible(false);
-        verificar(tipo);  
-        ATUALIZACION_REAL();
-        if(tipo.equals("Docente")){
-        rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/profesor.png");
-        }else{
-        bt_registrarClase.setVisible(false);
-        rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/estudiante.png");
+            TIPO=tipo;
+            USUARIO=nom;
+            FECHA=fecha;
+            HORA=hora;
+            lb_nomusuario.setText(nom);        
+            this.setLocationRelativeTo(null);
+            lb_nombresalon.setVisible(false);
+            lb_pc.setVisible(false);
+            verificar(TIPO);  
+            ATUALIZACION_REAL();
+            if(TIPO.equals("Docente")){
+                rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/profesor.png");
+            }else{
+                bt_registrarClase.setVisible(false);
+                rsscalelabel.RSScaleLabel.setScaleLabel(lb_usuario,"src/img/estudiante.png");
+            } 
         }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -389,6 +390,11 @@ public class Reservar_salon extends javax.swing.JFrame {
 
         bt_registrarClase.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         bt_registrarClase.setText("Registrar clase");
+        bt_registrarClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_registrarClaseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -465,17 +471,17 @@ public class Reservar_salon extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(lb_imgPC24, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(lb_imgPC6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lb_imgPC7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lb_imgPC8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(lb_imgPC14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(lb_imgPC15, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lb_imgPC16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(lb_imgPC16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_imgPC6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lb_imgPC8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                     .addComponent(lb_imgPC13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -548,7 +554,7 @@ public class Reservar_salon extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(1, 26, 93));
 
-        pn_LAS.setBackground(new java.awt.Color(81, 209, 12));
+        pn_LAS.setBackground(new java.awt.Color(244, 244, 244));
         pn_LAS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pn_LASMouseClicked(evt);
@@ -973,15 +979,41 @@ public class Reservar_salon extends javax.swing.JFrame {
     private void lb_imgPC32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_imgPC32MouseClicked
         pc_reservar(lb_imgPC32);
     }//GEN-LAST:event_lb_imgPC32MouseClicked
+
+    private void bt_registrarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_registrarClaseActionPerformed
+
+           switch(lb_nombresalon.getText()) {
+            case "LAS":
+                pn_LAS.setBackground(new Color(255,0,0));
+                reservar( "LAS");
+            break;
+            case "LDM":
+                pn_LDM.setBackground(new Color(255,0,0));
+                reservar( "LDM");
+            break;
+            case "LDS":
+                pn_LDS.setBackground(new Color(255,0,0));
+                reservar( "LDS");
+            break;
+            case "LPG":
+                pn_LPG.setBackground(new Color(255,0,02));
+                reservar( "LPG");
+            break;
+            case "LSO":
+                pn_LSO.setBackground(new Color(255,0,0));
+                reservar( "LSO");
+            break;
+            }
+    }//GEN-LAST:event_bt_registrarClaseActionPerformed
     public void cerrar(){
-        String equipo_usado=lb_pc.getText(),fecha=lb_fecha.getText(),hora=lb_hora.getText(),nom=lb_nomusuario.getText();
+        String equipo_usado=lb_pc.getText(),nom=lb_nomusuario.getText();
         Object [] opciones ={"Aceptar","Cancelar"};
         int eleccion = JOptionPane.showOptionDialog(rootPane,"Desea cerrar sesión","Mensaje de Confirmacion",
         JOptionPane.YES_NO_OPTION,
         JOptionPane.QUESTION_MESSAGE,null,opciones,"Aceptar");
         if (eleccion == JOptionPane.YES_OPTION)
         {
-        Observaciones ventana = new Observaciones( fecha, hora, equipo_usado, nom);
+        Observaciones ventana = new Observaciones( FECHA, HORA, equipo_usado, nom,lb_nombresalon.getText(),TIPO);
         ventana.setVisible(true);
         this.setVisible(false);
         }else{
@@ -1063,6 +1095,16 @@ public class Reservar_salon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.toString());
         }       
     }
+    private void reservar (String salon){
+        try{
+            Connection con=Base_datos.getConnection();
+            PreparedStatement ps=con.prepareStatement("UPDATE Equipos SET Estado='Ocupada' WHERE Salon='"+salon+"'");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Computadora Reservada","Computadora modificado",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/accept.png")); 
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }
+    }
     private void salon  (String salon) {
         try {
            switch(salon) {
@@ -1122,8 +1164,7 @@ public class Reservar_salon extends javax.swing.JFrame {
     timer.schedule(task, 0,500);
     }
     private void pc_reservar  (JLabel pc) {
-        
-        System.out.println(""+pc.getText());
+      
         String estadoi="";
         try{
         Connection connection = Base_datos.getConnection();
@@ -1169,6 +1210,24 @@ public class Reservar_salon extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null,"LA Computadora "+pc.getText()+" esta  en Mantenimiento","Computadora en Mantenimiento",JOptionPane.PLAIN_MESSAGE,new ImageIcon("src/img/cerrarinicio.png"));   
         }
     }
+    private String salon_tiempo_real  (JLabel salon) {
+        String Estado="";
+        try{
+            Connection connection = Base_datos.getConnection();
+            PreparedStatement ps;
+            ResultSet rs;
+            ps = connection.prepareStatement("SELECT Estado FROM Salones where Id='"+salon.getText()+"'"); 
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Estado=rs.getString("Estado");
+            }
+            return Estado;
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex.toString());
+        }
+        return Estado;
+    }
+        
     /**
      * @param args the command line arguments
      */

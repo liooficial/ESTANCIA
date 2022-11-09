@@ -2947,9 +2947,9 @@ public class Administrar_horario2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_administrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_administrarUsuariosActionPerformed
-        Usuarios ventana = new Usuarios( );
-                ventana.setVisible(true);
-                this.setVisible(false);
+        Usuarios ventana = new Usuarios( lb_usuario.getText());
+        ventana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt_administrarUsuariosActionPerformed
 
     private void bt_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_reportesActionPerformed
